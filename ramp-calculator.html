@@ -3,140 +3,629 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
+    <title>Lorcana Ramp Calculator</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .info-box ul {
+            margin-top: 10px;
+            margin-left: 20px;
+            color: #4a5568;
+        }
+        
+        .info-box li {
+            margin-bottom: 5px;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .input-group .value-display {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        .input-group input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .input-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        
+        .input-group input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .strategy-section {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .strategy-section h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .radio-option {
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding: 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .radio-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .radio-option input[type="radio"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .radio-option label {
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .run-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .construction-icon {
-            font-size: 5rem;
-            margin-bottom: 2rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeIn 1s ease;
-        }
-
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            animation: fadeIn 1s ease 0.3s backwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeIn 1s ease 0.6s backwards;
-        }
-
-        .link-btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 8px;
+            font-size: 1.1rem;
             font-weight: 600;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
-
-        .link-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+        
+        .run-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
         }
-
-        .footer {
-            margin-top: 3rem;
+        
+        .run-button:active {
+            transform: translateY(0);
+        }
+        
+        .run-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .results {
+            margin-top: 40px;
+            display: none;
+        }
+        
+        .results.visible {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results h2 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .results .strategy-label {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+        
+        .result-card .label {
             font-size: 0.9rem;
-            opacity: 0.7;
-            animation: fadeIn 1s ease 0.9s backwards;
+            opacity: 0.9;
+            margin-bottom: 8px;
         }
-
+        
+        .result-card .percentage {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .result-card .description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .stats-box {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stats-box p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        .stats-box strong {
+            color: #2d3748;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f7fafc;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .header h1 {
+                font-size: 1.8rem;
             }
-
-            .construction-icon {
-                font-size: 3rem;
+            
+            .content {
+                padding: 20px;
             }
-
-            p {
-                font-size: 1rem;
+            
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-card .percentage {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="construction-icon">🚧</div>
-        <h1>Under Construction</h1>
-        <p>
-            Working on something cool! This portfolio site is currently being built. 
-            Check back soon to see my projects and work.
-        </p>
-        
-        <div class="links">
-            <!-- Uncomment when calculator is ready -->
-            <!-- <a href="ramp-calculator.html" class="link-btn">🎴 Lorcana Calculator</a> -->
-            
-            <!-- Add your contact links here -->
-            <!-- <a href="https://github.com/candersen27" class="link-btn" target="_blank">GitHub</a> -->
-            <!-- <a href="https://linkedin.com/in/yourprofile" class="link-btn" target="_blank">LinkedIn</a> -->
+        <div class="header">
+            <h1>🎴 Lorcana Ramp Calculator</h1>
+            <p>Monte Carlo Simulation for Turn 2 Ramp Probability</p>
         </div>
-
+        
+        <div class="content">
+            <div class="info-box">
+                <h3>About This Tool</h3>
+                <p>This calculator uses Monte Carlo simulation to determine the probability of having a ramp card in hand by Turn 2 in Disney Lorcana. It accounts for:</p>
+                <ul>
+                    <li><strong>Mulligan strategies:</strong> Keep one Develop vs. Mulligan all non-ramp cards</li>
+                    <li><strong>Cantrip cards:</strong> Develop (look at 2, choose 1) and Pawpsicle (draw 1)</li>
+                    <li><strong>Play position:</strong> Going first vs. going second</li>
+                </ul>
+            </div>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>
+                        Deck Size
+                        <span class="value-display" id="deckSizeValue">60</span>
+                    </label>
+                    <input type="range" id="deckSize" min="40" max="80" value="60">
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Ramp Cards
+                        <span class="value-display" id="rampCardsValue">8</span>
+                    </label>
+                    <input type="range" id="rampCards" min="1" max="20" value="8">
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Develop Cards
+                        <span class="value-display" id="developCardsValue">4</span>
+                    </label>
+                    <input type="range" id="developCards" min="0" max="12" value="4">
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Pawpsicle Cards
+                        <span class="value-display" id="pawpsicleCardsValue">0</span>
+                    </label>
+                    <input type="range" id="pawpsicleCards" min="0" max="12" value="0">
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Simulations
+                        <span class="value-display" id="simulationsValue">10,000</span>
+                    </label>
+                    <input type="range" id="simulations" min="1000" max="50000" step="1000" value="10000">
+                </div>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Mulligan Strategy</h3>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="strategyKeep" name="strategy" value="keep" checked>
+                        <label for="strategyKeep">Keep 1 Develop (mulligan everything else)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="strategyMulligan" name="strategy" value="mulligan">
+                        <label for="strategyMulligan">Mulligan all non-ramp cards</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="run-button" id="runButton" onclick="runSimulation()">
+                Run Simulation
+            </button>
+            
+            <div class="results" id="results">
+                <h2>Results</h2>
+                <p class="strategy-label" id="strategyLabel"></p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="label">Going First</div>
+                        <div class="percentage" id="resultFirst">--</div>
+                        <div class="description">Success rate by Turn 2</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="label">Going Second</div>
+                        <div class="percentage" id="resultSecond">--</div>
+                        <div class="description">Success rate by Turn 2</div>
+                    </div>
+                </div>
+                
+                <div class="stats-box">
+                    <p><strong>Simulations run:</strong> <span id="simCount">--</span></p>
+                    <p><strong>Note:</strong> Probability of having ramp by Turn 2 across all possible opening hands.</p>
+                </div>
+            </div>
+        </div>
+        
         <div class="footer">
-            <p>© 2025 • Coming Soon</p>
+            Built with Monte Carlo simulation | Created by <a href="https://candersen27.github.io/cAndersen/" target="_blank">Christoffer Andersen</a>
         </div>
     </div>
+    
+    <script>
+        // Update value displays
+        const inputs = {
+            deckSize: document.getElementById('deckSize'),
+            rampCards: document.getElementById('rampCards'),
+            developCards: document.getElementById('developCards'),
+            pawpsicleCards: document.getElementById('pawpsicleCards'),
+            simulations: document.getElementById('simulations')
+        };
+        
+        inputs.deckSize.addEventListener('input', (e) => {
+            document.getElementById('deckSizeValue').textContent = e.target.value;
+        });
+        
+        inputs.rampCards.addEventListener('input', (e) => {
+            document.getElementById('rampCardsValue').textContent = e.target.value;
+        });
+        
+        inputs.developCards.addEventListener('input', (e) => {
+            document.getElementById('developCardsValue').textContent = e.target.value;
+        });
+        
+        inputs.pawpsicleCards.addEventListener('input', (e) => {
+            document.getElementById('pawpsicleCardsValue').textContent = e.target.value;
+        });
+        
+        inputs.simulations.addEventListener('input', (e) => {
+            document.getElementById('simulationsValue').textContent = parseInt(e.target.value).toLocaleString();
+        });
+        
+        // Fisher-Yates shuffle algorithm
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+        
+        // Simulate a single game
+        function simulateGame(keepOneDevelop, goingFirst, deck) {
+            let hand = deck.slice(0, 7);
+            let remaining = deck.slice(7);
+            
+            const hasRampInHand = () => hand.some(card => card === 'ramp');
+            const hasDevelopInHand = () => hand.some(card => card === 'develop');
+            const hasPawpsicleInHand = () => hand.some(card => card === 'pawpsicle');
+            
+            // Check opening hand
+            if (hasRampInHand()) return true;
+            
+            // Mulligan phase
+            let toMulligan = [];
+            
+            if (keepOneDevelop) {
+                // Keep exactly ONE develop if present, mulligan everything else
+                let keptOneDevelop = false;
+                toMulligan = hand.filter(card => {
+                    if (card === 'ramp') return false;
+                    if (card === 'develop' && !keptOneDevelop) {
+                        keptOneDevelop = true;
+                        return false;
+                    }
+                    return true;
+                });
+            } else {
+                // Mulligan everything that isn't ramp
+                toMulligan = hand.filter(card => card !== 'ramp');
+            }
+            
+            // Remove mulliganed cards from hand
+            hand = hand.filter(card => !toMulligan.includes(card));
+            
+            // Draw replacements from TOP of deck FIRST
+            for (let i = 0; i < toMulligan.length; i++) {
+                if (remaining.length > 0) {
+                    hand.push(remaining.shift());
+                }
+            }
+            
+            // THEN put mulliganed cards back and shuffle
+            remaining.push(...toMulligan);
+            remaining = shuffle(remaining);
+            
+            // Check hand after mulligan
+            if (hasRampInHand()) return true;
+            
+            // TURN 1
+            // If going second, draw a card
+            if (!goingFirst && remaining.length > 0) {
+                hand.push(remaining.shift());
+                if (hasRampInHand()) return true;
+            }
+            
+            // If there's a develop in hand, play it
+            if (hasDevelopInHand() && remaining.length >= 2) {
+                const card1 = remaining[0];
+                const card2 = remaining[1];
+                
+                // Look at top 2, prioritize ramp
+                if (card1 === 'ramp') {
+                    hand.push(remaining.shift());
+                    remaining.shift();
+                    return true;
+                } else if (card2 === 'ramp') {
+                    remaining.shift();
+                    hand.push(remaining.shift());
+                    return true;
+                } else {
+                    hand.push(remaining.shift());
+                    remaining.shift();
+                }
+            } else if (hasPawpsicleInHand() && remaining.length > 0) {
+                // If no Develop but we have Pawpsicle, play it to draw
+                hand.push(remaining.shift());
+                if (hasRampInHand()) return true;
+            }
+            
+            // Check hand after turn 1
+            if (hasRampInHand()) return true;
+            
+            // TURN 2
+            if (remaining.length > 0) {
+                hand.push(remaining.shift());
+                if (hasRampInHand()) return true;
+            }
+            
+            return false;
+        }
+        
+        // Run the simulation
+        function runSimulation() {
+            const button = document.getElementById('runButton');
+            button.disabled = true;
+            button.textContent = 'Running...';
+            
+            // Get parameters
+            const deckSize = parseInt(inputs.deckSize.value);
+            const rampCards = parseInt(inputs.rampCards.value);
+            const developCards = parseInt(inputs.developCards.value);
+            const pawpsicleCards = parseInt(inputs.pawpsicleCards.value);
+            const simulations = parseInt(inputs.simulations.value);
+            const strategy = document.querySelector('input[name="strategy"]:checked').value;
+            const keepOneDevelop = strategy === 'keep';
+            
+            // Validate
+            if (rampCards + developCards + pawpsicleCards > deckSize) {
+                alert('Total cards cannot exceed deck size!');
+                button.disabled = false;
+                button.textContent = 'Run Simulation';
+                return;
+            }
+            
+            // Run simulation in a timeout to allow UI to update
+            setTimeout(() => {
+                const results = {
+                    goingFirst: 0,
+                    goingSecond: 0
+                };
+                
+                for (let i = 0; i < simulations; i++) {
+                    // Create deck
+                    const deck = [];
+                    for (let j = 0; j < rampCards; j++) deck.push('ramp');
+                    for (let j = 0; j < developCards; j++) deck.push('develop');
+                    for (let j = 0; j < pawpsicleCards; j++) deck.push('pawpsicle');
+                    const otherCards = deckSize - rampCards - developCards - pawpsicleCards;
+                    for (let j = 0; j < otherCards; j++) deck.push('other');
+                    
+                    // Shuffle
+                    const shuffledDeck = shuffle(deck);
+                    
+                    // Test both positions
+                    const deck1 = [...shuffledDeck];
+                    const deck2 = [...shuffledDeck];
+                    
+                    if (simulateGame(keepOneDevelop, true, deck1)) results.goingFirst++;
+                    if (simulateGame(keepOneDevelop, false, deck2)) results.goingSecond++;
+                }
+                
+                // Display results
+                const firstPercent = (results.goingFirst / simulations * 100).toFixed(2);
+                const secondPercent = (results.goingSecond / simulations * 100).toFixed(2);
+                
+                document.getElementById('resultFirst').textContent = firstPercent + '%';
+                document.getElementById('resultSecond').textContent = secondPercent + '%';
+                document.getElementById('simCount').textContent = simulations.toLocaleString();
+                document.getElementById('strategyLabel').textContent = 
+                    'Strategy: ' + (keepOneDevelop ? 'Keep 1 Develop' : 'Mulligan All Non-Ramp');
+                
+                document.getElementById('results').classList.add('visible');
+                
+                button.disabled = false;
+                button.textContent = 'Run Simulation';
+                
+                // Scroll to results
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    </script>
 </body>
 </html>
